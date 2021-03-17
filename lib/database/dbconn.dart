@@ -66,14 +66,14 @@ class DbConn {
     final Database db = await database;
     final int sumExpense = Sqflite
         .firstIntValue(await db.rawQuery('SELECT SUM(amount) FROM trans WHERE type = "expense"'));
-    return sumExpense;
+    return sumExpense == null? 0: sumExpense;
   }
 
-  Future<int> inTotal() async {
+  Future<int> earnTotal() async {
     final Database db = await database;
     final int sumEarning = Sqflite
         .firstIntValue(await db.rawQuery('SELECT SUM(amount) FROM trans WHERE type = "earning"'));
-    return sumEarning;
+    return sumEarning == null? 0: sumEarning;
   }
 
   Future<void> updateTrans(Trans trans) async {

@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Column(
           children: [
-            FutureBuilder(
+            new FutureBuilder(
               future: loadTotal(),
               builder: (context, snapshot)  {
                 return Column(
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             const SizedBox(height: 15.0,),
-            FutureBuilder(
+            new FutureBuilder(
                 future: inTotal(),
                 builder: (context, snapshot){
                   return Row(
@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 }
             ),
-            FutureBuilder(
+            new FutureBuilder(
                 future: exTotal(),
                 builder: (context, snapshot){
                   return Row(
@@ -239,8 +239,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Future inTotal() {
     final Future futureDB = dbconn.initDB();
     return futureDB.then((db) {
-      Future<int> futureTotal = dbconn.inTotal();
-      futureTotal.then((ft) {
+      Future<int> futureEarn = dbconn.earnTotal();
+      futureEarn.then((ft) {
         setState(() {
           this.sumEarning = ft;
         });
@@ -251,8 +251,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Future exTotal() {
     final Future futureDB = dbconn.initDB();
     return futureDB.then((db) {
-      Future<int> futureTotal = dbconn.exTotal();
-      futureTotal.then((ft) {
+      Future<int> futureEx = dbconn.exTotal();
+      futureEx.then((ft) {
         setState(() {
           this.sumExpense = ft;
         });

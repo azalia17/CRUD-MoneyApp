@@ -21,28 +21,28 @@ class TransList extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => DetailWidget(trans[index])),);
                   },
                 child: Container(
-                  height: 60.0,
+                  height: MediaQuery.of(context).size.height * 0.08,
                   padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-                  child: Column(
-                    children: [
-                      Container(height: 10.0,),
-                      Row(
+                  child:Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           trans[index].transType == 'earning'? Icon(Icons.attach_money, color: Palette.biru, size: 40.0,)
                               : Icon(Icons.money_off, color: Palette.merah, size: 40.0,),
                           const SizedBox(width: 8.0),
                           Expanded(
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  trans[index].transName,
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.normal,
+                                    trans[index].transName,
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                    textAlign: TextAlign.left,
                                   ),
-                                ),
                                 Text(
                                   trans[index].transDate,
                                   style: const TextStyle(
@@ -71,9 +71,7 @@ class TransList extends StatelessWidget {
                           )
                         ],
                       ),
-                    ],
                   ),
-                ),
               )
           );
         },
