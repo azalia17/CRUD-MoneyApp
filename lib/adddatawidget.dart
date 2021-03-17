@@ -21,7 +21,7 @@ class _AddDataWidgetState extends State<AddDataWidget> {
 
   DbConn dbconn = DbConn();
   final _addFormKey = GlobalKey<FormState>();
-  final format = DateFormat("yMMMMEEEEd");
+  final format = DateFormat("dd MMMM yyyy");
   final _transDateController = TextEditingController();
   final _transNameController = TextEditingController();
   String transType = 'earning';

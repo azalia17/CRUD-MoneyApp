@@ -40,7 +40,8 @@ class DbConn {
   Future<List<Trans>> trans() async {
     final Database db = await database;
 
-    final List<Map<String, dynamic>> maps = await db.query('trans');
+    //final List<Map<String, dynamic>> maps = await db.query('trans');
+    final List<Map<String, dynamic>> maps = await db.rawQuery("SELECT * FROM trans ORDER BY cast([date] as datetime) DESC");
 
     return List.generate(maps.length, (i) {
       return Trans(

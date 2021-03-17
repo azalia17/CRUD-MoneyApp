@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'dart:async';
 import './palette.dart';
@@ -12,12 +13,19 @@ final oCcy = new NumberFormat("#,##0.00", "en_US");
 void main() async {
   await DbConn;
   runApp(MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return MaterialApp(
       title: 'Flutter App',
       debugShowCheckedModeBanner: false,
@@ -178,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-        toolbarHeight: 200.0,
+        toolbarHeight: MediaQuery.of(context).size.height * 0.25,
         elevation: 0.0,
         centerTitle: true,
         backgroundColor: Colors.white,

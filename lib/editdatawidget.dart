@@ -22,7 +22,7 @@ class _EditDataWidgetState extends State<EditDataWidget> {
   DbConn dbconn = DbConn();
   final _addFormKey = GlobalKey<FormState>();
   int _id = null;
-  final format = DateFormat("dd-MM-yyyy");
+  final format = DateFormat("dd MMMM yyyy");
   final _transDateController = TextEditingController();
   final _transNameController = TextEditingController();
   String transType = '';
